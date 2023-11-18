@@ -1,21 +1,13 @@
 import Usuario from '../Usuario';
 import './style.css'
 
-function ListasUsuarios(){
+function ListasUsuarios({usuarios, onEliminar, onActualizar}){
     return(
-    <div className='lista-usuario'>
-        
-        <Usuario usuario={
-        {
-            name:"Sebas",
-            lastName:"Alarcon",
-            type:"ADMIN",
-            photoUrl:"https://img.freepik.com/vector-premium/ilustracion-avatar-hombre-negocios-retrato-usuario-dibujos-animados-icono-perfil-usuario_118339-5507.jpg"//"../../../public/logo192.png"
-        
-        }
-    }/>   
-    </div>
-
-);
+        <div className='lista-usuario'>
+            {
+            usuarios.map((usuario, index) => <Usuario key={index} usuario={usuario} onEliminar={onEliminar} onActualizar={onActualizar}/>)
+            }
+        </div>
+    );
 }
 export default ListasUsuarios;
